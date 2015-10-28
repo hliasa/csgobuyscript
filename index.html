@@ -19,6 +19,9 @@
                 var flash = document.getElementById("flashbang");
                 var doubleflash = document.getElementById("doubleflash");
                 var smoke = document.getElementById("smoke");
+                var ammo = "";
+                var prim = document.getElementById("primammo");
+                var sec = document.getElementById("secammo");
                 if(he.checked)
                     nades = nades + ";buy hegrenade";
                 if(flash.checked){
@@ -28,8 +31,12 @@
                 }
                 if(smoke.checked)
                     nades = nades + ";buy smokegrenade";
-                
-                scriptbox.value = scriptbox.value + "bind \"" + strKey + "\" \"" + strWeapon + nades + "\"\n"; 
+                if(prim.checked)
+                    ammo = ammo + ";buy primammo";
+                if(secammo.checked)
+                    ammo = ammo + ";buy secammo";
+
+                scriptbox.value = scriptbox.value + "bind \"" + strKey + "\" \"" + strWeapon + nades + ammo + "\"\n"; 
             }
             function downloadScript(){
                 //js download code
