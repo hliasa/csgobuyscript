@@ -43,3 +43,8 @@ button:hover {
 #savebtn {
     border-radius: 15px;
 }
+#script {
+    white-space: pre;
+    word-wrap: normal;
+    overflow-x: scroll;
+} 
