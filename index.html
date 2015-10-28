@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>CS:GO Buyscript Creator</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div id="page-wrap">
+        <script>
+            function addCMD(){
+                var key = document.getElementById("key");
+                var strKey = key.options[key.selectedIndex].value;
+                var weapon = document.getElementById("weapon");
+                var strWeapon = weapon.options[weapon.selectedIndex].value;
+                var scriptbox = document.getElementById("script");
+                var nades = "";
+                var he = document.getElementById("he");
+                var flash = document.getElementById("flashbang");
+                var doubleflash = document.getElementById("doubleflash");
+                var smoke = document.getElementById("smoke");
+                if(he.checked)
+                    nades = nades + ";buy hegrenade";
+                if(flash.checked){
+                    nades = nades + ";buy flashbang";
+                    if(doubleflash.checked)
+                        nades = nades + ";buy flashbang";
+                }
+                if(smoke.checked)
+                    nades = nades + ";buy smokegrenade";
+                
+                scriptbox.value = scriptbox.value + "bind \"" + strKey + "\" \"" + strWeapon + nades + "\"\n"; 
+            }
+            function downloadScript(){
+                //js download code
+                var data = document.getElementById("script").value;
+                var txtBlob = new Blob([data], {type:'text/plain'});
+                var saveAs = "buyscript.cfg";
+                var dLink = document.createElement("a");
+                dLink.download = saveAs;
+                dLink.innerHTML = "Download Link";
+                dLink.href = window.URL.createObjectURL(txtBlob);
+                dLink.onclick = destroyClickedElement;
+                dLink.style.display = "none";
+                document.body.appendChild(dLink);
+                dLink.click();
+            }
+            function destroyClickedElement(event){
+                document.body.removeChild(event.target);
+            }
+        </script>
+            <fieldset>
+                <legend>Button & Item Selection</legend>
+                <table>
+                    <tr>
+                        <td>
+                            Select a Button:
+                        </td>
+                        <td>
+                            <select id="key">
+                                <optgroup label="NumPad Keys">
+                                <option value="kp_end">NumPad 1 | End</option>
+                                <option value="kp_downarrow">NumPad 2 | Down Arrow</option>
+                                <option value="kp_pgdn">NumPad 3 | Page Down</option>
+                                <option value="kp_leftarrow">NumPad 4 | Left Arrow</option>
+                                <option value="kp_5">NumPad 5</option>
+                                <option value="kp_rightarrow">NumPad 6 | Right Arrow</option>
+                                <option value="kp_home">NumPad 7 | Home</option>
+                                <option value="kp_uparrow">NumPad 8 | Up Arrow</option>
+                                <option value="kp_pgup">NumPad 9 | Page Up</option>
+                                <option value="kp_ins">NumPad 0</option>
+                                </optgroup>
+                            </select>
+                        </td>
+                    </tr>
+                <br/>
+                <tr>
+                    <td>
+                        Select a Weapon:
+                    </td>
+                    <td>
+                        <select id="weapon">
+                            <optgroup label="Pistols">
+                                <option value="buy glock">Glock 18</option>
+                                <option value="buy hkp2000;buy tec9">P2000(CT)/Tec-9(T)</option>
+                                <option value="buy p250">P250</option>
+                                <option value="buy fiveseven">Five-SeveN</option>
+                                <option value="buy elite">Dual Barettas</option>
+                                <option value="buy deagle">Desert Eagle</option>
+                            </optgroup>
+                            <optgroup label="SMGs - Sub MachineGuns">
+                                <option value="buy mac10;buy mp9">Mac-10(T)/MP-9(CT)</option>
+                                <option value="buy bizon">PP-Bizon</option>
+                                <option value="buy ump45">UMP-45</option>
+                                <option value="buy mp7">MP7</option>
+                                <option value="buy p90">P90</option>
+                            </optgroup>
+                            <optgroup label="Assault Rifles">
+                                <option value="buy galilar;buy famas">Galil(T)/Famas(CT)</option>
+                                <option value="buy ak47;buy m4a1">AK47(T)/Famas(CT)</option>
+                                <option value="buy sg556;buy aug">SG553(T)/AUG(CT)</option>
+                            </optgroup>
+                            <optgroup label="Sniper Rifles | Bolt Action">
+                                <option value="buy awp">AWP</option>
+                                <option value="buy ssg08">SSG08</option>
+                            </optgroup>
+                            <optgroup label="Sniper Rifles | Semi-Automatic">
+                                <option value="buy scar20;buy g3sg1">Scar20(CT)/G3SG1(T)</option>
+                            </optgroup>
+                            <optgroup label="LMGs - Light MachineGuns">
+                                <option value="buy m249">M249</option>
+                                <option value="buy negev">Negev</option>
+                            </optgroup>
+                            <optgroup label="Shotguns">
+                                <option value="buy nova">Nova (PumpAction)</option> 
+                                <option value="buy xm1014">XM1014 (Auto)</option>
+                                <option value="buy sawedoff;buy mag7">Sawed-Off(T)/MAG-7(CT)</option>
+                            </optgroup>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Grenades:
+                    </td>
+                    <td>
+                        <input type="checkbox" id="flashbang">FB(<input type="checkbox" id="doubleflash">2x) <input type="checkbox" id="he">HE <input type="checkbox" id="smoke">Smoke
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                        <button onclick="addCMD()">Add to script</button>
+                    </td>
+                </tr>
+                </table>
+            </fieldset>
+            <fieldset>
+                <legend>Script</legend>
+                <center>
+                    <textarea id="script" rows="10"  cols="100" readonly></textarea><br/>
+                    <button onclick="downloadScript()">Save script</button>
+                </center>
+            </fieldset>
+        </div>
+    </body>
+</html> 
