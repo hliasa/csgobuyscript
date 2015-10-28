@@ -40,3 +40,6 @@ button:hover {
     background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
     text-decoration: none;
 }
+#savebtn {
+    border-radius: 15px;
+}
