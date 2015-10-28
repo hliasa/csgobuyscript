@@ -61,4 +61,6 @@ function downloadScript(){
 function destroyClickedElement(event){
     document.body.removeChild(event.target);
 }
-
+function clearScript(){
+document.getElementById("script").value = "";
+}

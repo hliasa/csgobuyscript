@@ -18,16 +18,37 @@
                         <td>
                             <select id="key">
                                 <optgroup label="NumPad Keys">
-                                <option value="kp_end">NumPad 1 | End</option>
-                                <option value="kp_downarrow">NumPad 2 | Down Arrow</option>
-                                <option value="kp_pgdn">NumPad 3 | Page Down</option>
-                                <option value="kp_leftarrow">NumPad 4 | Left Arrow</option>
-                                <option value="kp_5">NumPad 5</option>
-                                <option value="kp_rightarrow">NumPad 6 | Right Arrow</option>
-                                <option value="kp_home">NumPad 7 | Home</option>
-                                <option value="kp_uparrow">NumPad 8 | Up Arrow</option>
-                                <option value="kp_pgup">NumPad 9 | Page Up</option>
-                                <option value="kp_ins">NumPad 0</option>
+                                    <option value="kp_end">NumPad 1 | End</option>
+                                    <option value="kp_downarrow">NumPad 2 | Down Arrow</option>
+                                    <option value="kp_pgdn">NumPad 3 | Page Down</option>
+                                    <option value="kp_leftarrow">NumPad 4 | Left Arrow</option>
+                                    <option value="kp_5">NumPad 5</option>
+                                    <option value="kp_rightarrow">NumPad 6 | Right Arrow</option>
+                                    <option value="kp_home">NumPad 7 | Home</option>
+                                    <option value="kp_uparrow">NumPad 8 | Up Arrow</option>
+                                    <option value="kp_pgup">NumPad 9 | Page Up</option>
+                                    <option value="kp_ins">NumPad 0</option>
+                                </optgroup>
+                                <optgroup label="Function Keys">
+                                    <option value="">F1</option>
+                                    <option value="">F2</option>
+                                    <option value="">F3</option>
+                                    <option value="">F4</option>
+                                    <option value="">F5</option>
+                                    <option value="">F6</option>
+                                    <option value="">F7</option>
+                                    <option value="">F8</option>
+                                    <option value="">F9</option>
+                                    <option value="">F10</option>
+                                    <option value="">F11</option>
+                                    <option value="">F12</option>
+                                </optgroup>
+                                <optgroup label="Mouse Buttons">
+                                    <option value="">Wheel Up</option>
+                                    <option value="">Wheel Down</option>
+                                    <option value="">Middle Click</option>
+                                    <option value="">Left Click</option>
+                                    <option value="">Right Click</option>
                                 </optgroup>
                             </select>
                         </td>
@@ -138,6 +159,7 @@
                 <legend>Script</legend>
                 <center>
                     <textarea id="script" rows="10"  cols="100" readonly></textarea><br/>
+                    <button id="clear" onclick="clearScript()">Clear script</button>
                     <button id="savebtn" onclick="downloadScript()"><strong>Save script</strong></button>
                 </center>
             </fieldset>
