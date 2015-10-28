@@ -4,14 +4,12 @@ function addCMD(){
     var weapon = document.getElementById("weapon");
     var strWeapon = weapon.options[weapon.selectedIndex].value;
     var scriptbox = document.getElementById("script");
+    //============ detect grenades ==========
     var nades = "";
     var he = document.getElementById("he");
     var flash = document.getElementById("flashbang");
     var doubleflash = document.getElementById("doubleflash");
     var smoke = document.getElementById("smoke");
-    var ammo = "";
-    var prim = document.getElementById("primammo");
-    var sec = document.getElementById("secammo");
     if(he.checked)
         nades = nades + ";buy hegrenade";
     if(flash.checked){
@@ -21,12 +19,30 @@ function addCMD(){
         }
     if(smoke.checked)
         nades = nades + ";buy smokegrenade";
+    //============ end detect grenades ========
+    //============ detect ammo ============
+    var ammo = "";
+    var prim = document.getElementById("primammo");
+    var sec = document.getElementById("secammo");
     if(prim.checked)
         ammo = ammo + ";buy primammo";
     if(secammo.checked)
         ammo = ammo + ";buy secammo";
-
-    scriptbox.value = scriptbox.value + "bind \"" + strKey + "\" \"" + strWeapon + nades + ammo + "\"\n"; 
+    //========= end detect ammo ========
+    //========= detect equipment =======
+    var equip = "";
+    var vest = document.getElementById("vest");
+    var vesthelm = document.getElementById("vesthelm");
+    var defkit = document.getElementById("defkit");
+    if(vest.checked)
+        equip = equip + ";buy vest";
+    if(vesthelm.checked)
+        equip = equip + ";buy vesthelm";
+    if(defkit.checked)
+        equip = equip + ";buy defuser";
+    //========= end detect equipment
+    //write to textarea
+    scriptbox.value = scriptbox.value + "bind \"" + strKey + "\" \"" + strWeapon + nades + ammo + equip + "\"\n"; 
 }
 function downloadScript(){
     //js download code
