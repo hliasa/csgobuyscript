@@ -1,5 +1,4 @@
 body {
-    /*background-color: #f2f8f8;*/
     background-image: url("bg.png");
     background-repeat: repeat;
 }
@@ -49,4 +48,13 @@ button:hover {
 #script {
     white-space: pre;
     word-wrap: normal;
-} 
+    margin: auto;
+}
+.toCenter {
+    text-align: center;
+}
+#toLeft {
+    text-align: right;
+    position: absolute;
+    padding-left: 30px;
+}

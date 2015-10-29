@@ -157,11 +157,15 @@
             </fieldset>
             <fieldset>
                 <legend>Script</legend>
-                <center>
-                    <textarea id="script" rows="10"  cols="100" readonly></textarea><br/>
-                    <button id="clear" onclick="clearScript()">Clear script</button>
-                    <button id="savebtn" onclick="downloadScript()"><strong>Save script</strong></button>
-                </center>
+                    <div class="toCenter">
+                        <textarea id="script" rows="10"  cols="100" readonly></textarea>
+                    </div>
+                    <div id="toLeft">
+                        <button id="clear" onclick="clearScript()">Clear script</button>
+                    </div>
+                    <div class="toCenter">
+                        <button id="savebtn" onclick="downloadScript()"><strong>Save script</strong></button>
+                    </div>
             </fieldset>
         </div>
     </body>
