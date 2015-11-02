@@ -56,6 +56,7 @@ function downloadScript(){
     dLink.onclick = destroyClickedElement;
     dLink.style.display = "none";
     document.body.appendChild(dLink);
+    alert("Save the file on \"C:/Program Files (x86)/Steam/steamapps/common/Counter-Strike Global Offensive/csgo/cfg\" and when you run the game, press ~ and type \"exec buyscript.cfg\".");
     dLink.click();
 }
 function destroyClickedElement(event){
